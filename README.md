@@ -50,37 +50,37 @@ TESTS
 
 Describe: roll()
 
-Test: It will generate a number 1-6 and return that number
+1)Test: It will generate a number 1-6 and return that number
 Code: Roll()  
 Expected Output: 1
 
 Describe: scoring()
 
-Test: It will return values based on currentRoll
+2)Test: It will return values based on currentRoll
 Code: scoring(2)  
 Expected Output: 2
 
-Test: It will add currentRoll value to turnTotal
+3)Test: It will add currentRoll value to turnTotal
 Code: scoring(2)  
 Expected Output: turnTotal + 2
 
-Test: It will set turnTotal to 0 if 1 is rolled
+4)Test: It will set turnTotal to 0 if 1 is rolled
 Code: scoring(1)  
 Expected Output: turnTotal = 0
 
-Test: It will end the turn if player chooses to hold or a 1 is rolled
+5)Test: It will end the turn if player chooses to hold or a 1 is rolled
 Code: scoring(1 or 2-6)  
 Expected Output: next turn
 
 Describe totalScore()
 
-Test: It will add turnTotal to totalScore
+6)Test: It will add turnTotal to totalScore
 Code: totalScore(1)  
 Expected Output: totalScore += turnTotal
 
 Describe playerTurn()
 
-Test: It will call totalScore() if player clicks hold button and return totalScore
+7)Test: It will call totalScore() if player clicks hold button and return totalScore
 Code: playerTurn()
 Expected Output: totalScore
 
