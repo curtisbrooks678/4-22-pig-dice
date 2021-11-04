@@ -54,6 +54,11 @@ $(document).ready(function() {
       player1.roll();
       player1.scoring();
       showP1Scores(player1);
+      if (player1.totalScore + player1.turnTotal >= 100) {
+        $("#p1-win").show();
+        player1.turnTotal = 0;
+        player1.totalingScore = 0;
+      }
       if (player1.currentRoll === 1){
         playercounter = !playercounter;
         $("#p2turn").show();
@@ -63,6 +68,11 @@ $(document).ready(function() {
       player2.roll();
       player2.scoring();
       showP2Scores(player2);
+      if (player2.totalScore + player2.turnTotal >= 100) {
+        $("#p2-win").show();
+        player2.turnTotal = 0;
+        player2.totalingScore = 0;
+      }
       if (player2.currentRoll === 1){
         playercounter = !playercounter;
         $("#p1turn").show();
@@ -70,26 +80,26 @@ $(document).ready(function() {
       }
     }
   });
+
+  $("button#holddice").click(function() {
+    if (playercounter === true) {
+      player1.totalingScore();
+      player1.turnTotal = 0;
+      showP1Scores(player1);
+      playercounter = !playercounter;
+      $("#p2turn").show();
+      $("#p1turn").hide();
+    } else if (playercounter === false) {
+      player2.totalingScore();
+      player2.turnTotal = 0;
+      showP2Scores(player2);
+      playercounter = !playercounter;
+      $("#p1turn").show();
+      $("#p2turn").hide();
+    }
+  }); 
 });
 
-  // $("button#holddice").click(function() {
-  //   if (playercounter = true) {
-  //     player1Object.totalingScore();
-  //   } else if (playercounter = false) {
-  //     player2Object.totalingScore();
-  //   }
-  //   playercounter = !playercounter;
-  // }); 
-  
-
-
-  // 
-  // if (player1Object.totalScore >= 100) {
-  //   display Congrats P1;
-  // }
-  // if (player2Object.totalScore >= 100) {
-  //   display Congrats P2;
-  // }
 
 
 
