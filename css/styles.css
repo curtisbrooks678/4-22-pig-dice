@@ -33,3 +33,33 @@ h1  {
   display: none;
   text-align: center;
 }
+
+#imgside1 {
+  display: none;
+  width: 75px;
+}
+
+#imgside2 {
+  display: none;
+  width: 75px;
+}
+
+#imgside3 {
+  width: 75px;
+  display: none;
+}
+
+#imgside4 {
+  width: 75px;
+  display: none;
+}
+
+#imgside5 {
+  width: 75px;
+  display: none;
+}
+
+#imgside6 {
+  width: 75px;
+  display: none;
+}

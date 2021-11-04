@@ -24,25 +24,62 @@ PlayerScore.prototype.totalingScore = function() {
 
 //UI Logic
 
-function showP1Scores(player1) {
-  $("#dicerolltotal").html(player1.currentRoll);
-  $("#p1turntotal").html(player1.turnTotal);
-  $("#p1score").html(player1.totalScore);
-}
-function showP2Scores(player2) {
-  $("#dicerolltotal").html(player2.currentRoll);
-  $("#p2turntotal").html(player2.turnTotal);
-  $("#p2score").html(player2.totalScore);
+function diceFaces (player) {
+  if (player === 1) {
+    $("#imgside1").show();
+    $("#imgside2").hide();
+    $("#imgside3").hide();
+    $("#imgside4").hide();
+    $("#imgside5").hide();
+    $("#imgside6").hide();
+  } else if (player === 2) {
+    $("#imgside2").show();
+    $("#imgside1").hide();
+    $("#imgside3").hide();
+    $("#imgside4").hide();
+    $("#imgside5").hide();
+    $("#imgside6").hide();
+  } else if (player === 3) {
+    $("#imgside3").show();
+    $("#imgside1").hide();
+    $("#imgside2").hide();
+    $("#imgside4").hide();
+    $("#imgside5").hide();
+    $("#imgside6").hide();
+  } else if (player === 4) {
+    $("#imgside4").show();
+    $("#imgside1").hide();
+    $("#imgside2").hide();
+    $("#imgside3").hide();
+    $("#imgside5").hide();
+    $("#imgside6").hide();
+  } else if (player === 5) {
+    $("#imgside5").show();
+    $("#imgside1").hide();
+    $("#imgside2").hide();
+    $("#imgside3").hide();
+    $("#imgside4").hide();
+    $("#imgside6").hide();
+  } else if (player === 6) {
+    $("#imgside6").show();
+    $("#imgside1").hide();
+    $("#imgside2").hide();
+    $("#imgside3").hide();
+    $("#imgside4").hide();
+    $("#imgside5").hide();  
+  }
 }
 
-// function winner() {
-//   player1.turnTotal = 0;
-//   player1.totalScore = 0;
-//   showP1Scores(player1);
-//   player2.turnTotal = 0;
-//   player2.totalScore = 0;
-//   showP2Scores(player2);
-// }
+function showP1Scores(P1) {
+  diceFaces(P1.currentRoll);
+  $("#p1turntotal").html(P1.turnTotal);
+  $("#p1score").html(P1.totalScore);
+}
+function showP2Scores(P2) {
+  diceFaces(P2.currentRoll);
+  $("#p2turntotal").html(P2.turnTotal);
+  $("#p2score").html(P2.totalScore);
+}
 
 $(document).ready(function() {
   let player1 = new PlayerScore();
@@ -84,8 +121,6 @@ $(document).ready(function() {
       $("#p1turn").hide();
       if (player1.totalScore >= 100) {
         $("#p1-win").show();
-        // winner();
-        // player1.turnTotal = 0;
         player1.totalScore = 0;
         showP1Scores(player1);
         player2.turnTotal = 0;
@@ -105,8 +140,6 @@ $(document).ready(function() {
       $("#p2turn").hide();
       if (player2.totalScore >= 100) {
         $("#p2-win").show();
-        // winner();
-        // player2.turnTotal = 0;
         player2.totalScore = 0;
         showP2Scores(player2);
         player1.turnTotal = 0;
