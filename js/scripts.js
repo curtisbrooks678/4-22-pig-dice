@@ -40,6 +40,16 @@ function showP2Scores(player2) {
   $("#p2score").html(player2.totalScore);
 }
 
+function winner() {
+  player1.turnTotal = 0;
+  player1.totalScore = 0;
+  showP1Scores(player1);
+  player2.turnTotal = 0;
+  player2.totalScore = 0;
+  showP2Scores(player2);
+  playercounter = true;
+}
+
 // function endOfTurn() {
 
 // }
@@ -50,36 +60,37 @@ $(document).ready(function() {
   let playercounter = true;
 
   $("button#rolldice").click(function() {
+    $("#p1-win").hide();
+    $("#p2-win").hide();
     if (playercounter === true) {
       player1.roll();
       player1.scoring();
       showP1Scores(player1);
-      if (player1.totalScore + player1.turnTotal >= 100) {
-        $("#p1-win").show();
-        player1.turnTotal = 0;
-        player1.totalingScore = 0;
-      }
       if (player1.currentRoll === 1){
         playercounter = !playercounter;
         $("#p2turn").show();
         $("#p1turn").hide();
       }
-    } else if (playercounter === false) {
+      } else if (playercounter === false) {
       player2.roll();
       player2.scoring();
       showP2Scores(player2);
-      if (player2.totalScore + player2.turnTotal >= 100) {
-        $("#p2-win").show();
-        player2.turnTotal = 0;
-        player2.totalingScore = 0;
-      }
-      if (player2.currentRoll === 1){
+      if (player2.currentRoll === 1) {
         playercounter = !playercounter;
         $("#p1turn").show();
         $("#p2turn").hide();
       }
+      }
+    if (player1.totalScore + player1.turnTotal >= 100) {
+      $("#p1-win").show();
+      winner();
+    }
+    if (player2.totalScore + player2.turnTotal >= 100) {
+      $("#p2-win").show();
+      winner();
     }
   });
+  
 
   $("button#holddice").click(function() {
     if (playercounter === true) {
@@ -99,50 +110,3 @@ $(document).ready(function() {
     }
   }); 
 });
-
-
-
-
-
-// let newroll = new PlayerScore();
-// newroll.roll();
-// newroll.scoring();
-// newroll.totalingScore();
-// console.log(newroll);
-// newroll.roll();
-// newroll.scoring();
-// newroll.totalingScore();
-// console.log(newroll);
-// newroll.roll();
-// newroll.scoring();
-// newroll.totalingScore();
-// console.log(newroll);
-// newroll.roll();
-// newroll.scoring();
-// newroll.totalingScore();
-// console.log(newroll);
-// newroll.roll();
-// newroll.scoring();
-// newroll.totalingScore();
-// console.log(newroll);
-// newroll.roll();
-// newroll.scoring();
-// newroll.totalingScore();
-// console.log(newroll);
-// newroll.roll();
-// newroll.scoring();
-// newroll.totalingScore();
-// console.log(newroll);
-
-
-// playerTurn {
-//   playercounter = 0;
-//   if (playercounter === 0) {
-//     // player one's turn
-//     playercounter += 1;
-//   }
-//   if (playercounter === 1) {
-//     // player two's turn
-//     playercounter -= 1;
-//   }
-// }
