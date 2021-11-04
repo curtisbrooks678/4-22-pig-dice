@@ -50,20 +50,21 @@ $(document).ready(function() {
   let playercounter = true;
 
   $("button#rolldice").click(function() {
-    if (playercounter = true) {
+    if (playercounter === true) {
       player1.roll();
       player1.scoring();
       showP1Scores(player1);
       if (player1.currentRoll === 1){
-        playercounter = !playercounter
+        playercounter = !playercounter;
         $("#p2turn").show();
         $("#p1turn").hide();
       }
-    } else if (playercounter = false) {
+    } else if (playercounter === false) {
       player2.roll();
-      $("#dicerolltotal").html(player1.currentRoll);
-      if (player2.roll() === 1){
-        playercounter = !playercounter
+      player2.scoring();
+      showP2Scores(player2);
+      if (player2.currentRoll === 1){
+        playercounter = !playercounter;
         $("#p1turn").show();
         $("#p2turn").hide();
       }
@@ -82,7 +83,7 @@ $(document).ready(function() {
   
 
 
-  
+  // 
   // if (player1Object.totalScore >= 100) {
   //   display Congrats P1;
   // }

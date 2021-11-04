@@ -1,3 +1,25 @@
+h1  {
+  text-align: center;
+}
+
+#p1turn {
+  text-align: center;
+}
+
 #p2turn {
+  text-align: center;
   display: none;
+}
+
+#player1 {
+  float: left;
+
+}
+
+#player2 {
+  float: right;
+}
+
+.container  {
+  margin: 50px;
 }
